@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "3cf3f036-4f13-4289-bae3-953b7b44159f",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "3973290-3cf3f036-4f13-4289-bae3-953b7b44159f"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"id": "f8a64d48-a7b4-42e6-9df8-45a75bb1c16a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"Usman Soliu\",\n    \"email\": \"test@me.com\",\n    \"password\": \"Islam123\",\n    \"type\": \"Customer\",\n    \"address\": \"9, Ibadan Nigeria\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"id": "f233a129-ab31-4317-932e-924304cdd440",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@me.com\",\n    \"password\": \"Islam123\",\n    \"type\": \"Customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "378ea1c0-ad54-4af1-9b05-3a613624e6b1"
+		},
+		{
+			"name": "Meals",
+			"item": [
+				{
+					"name": "New Meal",
+					"id": "70c79a5c-0474-495e-aaae-8d5c7954cb5f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendorToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jollof Rice\",\n    \"description\": \"Tasty and delicious\",\n    \"unitPrice\": \"500\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/meal/new",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"meal",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5243eaac-c8da-436f-b225-39588761511c"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "New Order",
+					"id": "b3e9d652-5285-4afa-a79c-631d1d751f89",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{customerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jollof Rice\",\n    \"description\": \"Tasty and delicious\",\n    \"unitPrice\": \"500\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/order/new",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"order",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5eea43a2-12fd-46a7-8d8f-97d847663053"
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8c838f36-8df7-42c3-a5da-2c0eca64ff68",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f9c982ad-7fd5-4432-8898-ca079c5de8f7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5eaeca66-2b06-4ccb-b1c4-cf224d3120cd",
+			"key": "BASE_URL",
+			"value": "http://0.0.0.0:3000/api",
+			"type": "string"
+		},
+		{
+			"id": "d3a1484f-bb0a-4143-8342-e98a0e608ec9",
+			"key": "customerToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "def379ca-a80a-436f-81f6-b58748b8b66f",
+			"key": "vendorToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
